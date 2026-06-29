@@ -1,0 +1,7 @@
+Python is used in Data Science.
+
+Machine Learning uses Statistics.
+
+Data Science uses Python and SQL.
+
+Statistics helps in Machine Learning.

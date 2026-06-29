@@ -1,0 +1,16 @@
+# Virtual Environment
+venv/
+
+# Python cache
+__pycache__/
+
+*.pyc
+
+# VS Code
+.vscode/
+
+# Generated HTML
+memory_map.html
+
+# Database (later)
+database/brain.db
