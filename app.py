@@ -1,24 +1,23 @@
-import spacy
+from pdf_reader import extract_text_from_pdf
+from relationship_extractor import extract_relationships
+from graph import create_graph
 
-# Load spaCy model
-nlp = spacy.load("en_core_web_sm")
+pdf_path = "uploads/python_notes.pdf"
 
-# Read notes file
-with open("data/notes.txt", "r") as file:
-    text = file.read()
+print("📄 Reading PDF...")
 
-# Process text
-doc = nlp(text)
+text = extract_text_from_pdf(pdf_path)
 
-# Store concepts
-concepts = set()
+print("✅ Text extracted.")
 
-# Extract noun phrases
-for chunk in doc.noun_chunks:
-    concepts.add(chunk.text)
+print("🧠 Finding relationships...")
 
-# Print concepts
-print("Concepts Found:\n")
+relationships = extract_relationships(text)
 
-for concept in concepts:
-    print(concept)
+print(f"✅ Found {len(relationships)} relationships.")
+
+print("🗺️ Creating Memory Map...")
+
+create_graph(relationships)
+
+print("🎉 Project Completed!")

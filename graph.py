@@ -1,22 +1,21 @@
 from pyvis.network import Network
-from relationship_extractor import extract_relationships
 
-net = Network(height="750px", width="100%", directed=True)
+def create_graph(relationships):
 
-relationships = extract_relationships()
+    net = Network(height="750px", width="100%", directed=True)
 
-nodes = set()
+    nodes = set()
 
-for source, target in relationships:
-    nodes.add(source)
-    nodes.add(target)
+    for source, target in relationships:
+        nodes.add(source)
+        nodes.add(target)
 
-for node in nodes:
-    net.add_node(node)
+    for node in nodes:
+        net.add_node(node)
 
-for source, target in relationships:
-    net.add_edge(source, target)
+    for source, target in relationships:
+        net.add_edge(source, target)
 
-net.write_html("memory_map.html")
+    net.write_html("memory_map.html")
 
-print("Memory Map Created Successfully!")
+    print("✅ Memory Map Created!")
